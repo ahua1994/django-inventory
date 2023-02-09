@@ -25,7 +25,7 @@ class Purchases(models.Model):
     # total = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
-        return f"Purchased {self.quantity} {self.brand} {self.product} for ${self.total} by {self.firm}'s {self.user}"
+        return f"Purchased {self.quantity} {self.brand} {self.product} for ${self.quantity * self.price} by {self.firm}'s {self.user}"
 
 
 class Sales(models.Model):
@@ -34,7 +34,7 @@ class Sales(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     quantity = models.SmallIntegerField()
     price = models.DecimalField(decimal_places=2, max_digits=10)
-    total = models.DecimalField(decimal_places=2, max_digits=10)
+    # total = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
         return f"Sold {self.quantity} {self.brand} {self.product} for ${self.total} to {self.user}"
